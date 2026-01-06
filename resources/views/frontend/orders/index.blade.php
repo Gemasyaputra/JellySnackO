@@ -375,7 +375,7 @@
                     <div class="stat-icon">
                         <i class="bi bi-clock-history"></i>
                     </div>
-                    <div class="stat-value">{{ $orders->where('status', 'menunggu pembayaran')->count() + $orders->where('status', 'pending')->count() }}</div>
+                    <div class="stat-value">{{ $orders->where('status', 'menunggu konfirmasi admin')->count() + $orders->where('status', 'pending')->count() }}</div>
                     <div class="stat-label">Menunggu</div>
                 </div>
                 <div class="stat-card">

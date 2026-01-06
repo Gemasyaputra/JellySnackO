@@ -78,16 +78,28 @@
             border-radius: 16px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
             overflow: hidden;
+            width: 100%;
         }
 
         .table-card .card-body {
             padding: 0;
         }
 
-        /* === TABLE STYLES === */
+        /* === FIXED TABLE WIDTH === */
+        .table-responsive {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         .products-table {
             margin: 0;
-            width: 100%;
+            width: 100% !important;
+            min-width: 100%;
+            border-collapse: collapse;
+            table-layout: auto;
         }
 
         .products-table thead {
@@ -104,6 +116,7 @@
             padding: 1.25rem 1.5rem !important;
             border: none !important;
             white-space: nowrap;
+            text-align: left;
         }
 
         .products-table tbody td {
@@ -111,6 +124,7 @@
             vertical-align: middle;
             border-bottom: 1px solid #f0f0f0;
             color: #333;
+            white-space: nowrap;
         }
 
         .products-table tbody tr:last-child td {
@@ -119,6 +133,44 @@
 
         .products-table tbody tr:hover {
             background-color: #f8f9fa;
+        }
+
+        /* Column width adjustments */
+        .products-table th:nth-child(1),
+        .products-table td:nth-child(1) {
+            width: 15%;
+            min-width: 100px;
+        }
+        
+        .products-table th:nth-child(2),
+        .products-table td:nth-child(2) {
+            width: 25%;
+            min-width: 200px;
+        }
+        
+        .products-table th:nth-child(3),
+        .products-table td:nth-child(3) {
+            width: 15%;
+            min-width: 150px;
+        }
+        
+        .products-table th:nth-child(4),
+        .products-table td:nth-child(4) {
+            width: 15%;
+            min-width: 150px;
+        }
+        
+        .products-table th:nth-child(5),
+        .products-table td:nth-child(5) {
+            width: 10%;
+            min-width: 120px;
+        }
+        
+        .products-table th:nth-child(6),
+        .products-table td:nth-child(6) {
+            width: 20%;
+            min-width: 180px;
+            text-align: center;
         }
 
         /* === PRODUCT IMAGE === */
@@ -155,6 +207,8 @@
             font-weight: 700;
             color: #1a1a1a;
             margin-bottom: 0.25rem;
+            white-space: normal;
+            word-wrap: break-word;
         }
 
         .product-category {
@@ -165,6 +219,7 @@
             border-radius: 15px;
             font-weight: 600;
             font-size: 0.8rem;
+            white-space: nowrap;
         }
 
         .product-price {
@@ -176,6 +231,7 @@
         .product-stock {
             font-weight: 700;
             font-size: 1rem;
+            white-space: nowrap;
         }
 
         .stock-good {
@@ -195,6 +251,7 @@
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .btn-edit {
@@ -209,6 +266,8 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
+            text-decoration: none;
+            white-space: nowrap;
         }
 
         .btn-edit:hover {
@@ -230,6 +289,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
+            white-space: nowrap;
         }
 
         .btn-delete:hover {
@@ -329,12 +389,25 @@
 
             .action-buttons {
                 flex-direction: column;
+                align-items: center;
             }
 
             .btn-edit,
             .btn-delete {
                 width: 100%;
                 justify-content: center;
+            }
+            
+            /* Adjust column widths for mobile */
+            .products-table th:nth-child(n),
+            .products-table td:nth-child(n) {
+                width: auto;
+                min-width: 80px;
+            }
+            
+            .products-table th:nth-child(6),
+            .products-table td:nth-child(6) {
+                min-width: 150px;
             }
         }
     </style>

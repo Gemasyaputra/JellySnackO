@@ -15,7 +15,7 @@ return new class extends Migration
             $table->decimal('total_price', 15, 2)->after('user_id');
             $table->text('shipping_address')->after('total_price');
             $table->string('phone_number')->after('shipping_address');
-            $table->string('status')->default('menunggu pembayaran')->after('phone_number');
+            $table->string('status')->default('menunggu konfirmasi admin')->after('phone_number');
         });
     }
 

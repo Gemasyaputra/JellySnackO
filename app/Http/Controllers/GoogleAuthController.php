@@ -45,7 +45,7 @@ class GoogleAuthController extends Controller
             // Login user tersebut
             Auth::login($user);
 
-            return redirect()->to('/dashboard'); // Ganti dengan halaman tujuanmu
+            return redirect()->to('/products'); // Ganti dengan halaman tujuanmu
 
         } catch (\Exception $e) {
             return redirect()->to('/login')->with('error', 'Login Gagal!');

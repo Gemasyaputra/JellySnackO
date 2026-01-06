@@ -16,7 +16,7 @@ class DashboardController extends Controller
     $totalRevenue = Order::where('status', 'selesai')->sum('total_price');
 
     // Menghitung jumlah pesanan yang masih perlu diproses
-    $newOrdersCount = Order::whereIn('status', ['menunggu pembayaran', 'diproses'])->count();
+    $newOrdersCount = Order::whereIn('status', ['menunggu konfirmasi admin', 'diproses'])->count();
     
     // Menghitung jumlah pelanggan (user dengan role 'user')
     $customersCount = User::where('role', 'user')->count();

@@ -38,7 +38,7 @@ class CheckoutController extends Controller
             'total_price' => Cart::getTotal(),
             'shipping_address' => $request->address,
             'phone_number' => $request->phone,
-            'status' => 'menunggu pembayaran',
+            'status' => 'menunggu konfirmasi admin',
         ]);
 
         // Simpan setiap item di keranjang ke order_items

@@ -302,7 +302,7 @@
         }
 
         .btn-detail {
-            background-color: #17a2b8;
+            background-color: #084d14;
             color: #ffffff;
             border: none;
             padding: 0.75rem 1.5rem;

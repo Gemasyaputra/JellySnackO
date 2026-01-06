@@ -422,7 +422,7 @@
                         $statusClass = '';
                         $statusIcon = '';
                         switch($order->status) {
-                            case 'menunggu pembayaran':
+                            case 'menunggu konfirmasi admin':
                             case 'pending':
                                 $statusClass = 'status-pending';
                                 $statusIcon = 'bi-clock-history';
@@ -466,8 +466,8 @@
                                 Ubah Status Pesanan
                             </label>
                             <select name="status" id="status" class="form-select">
-                                <option value="menunggu pembayaran" {{ $order->status == 'menunggu pembayaran' ? 'selected' : '' }}>
-                                    Menunggu Pembayaran
+                                <option value="menunggu konfirmasi admin" {{ $order->status == 'menunggu konfirmasi admin' ? 'selected' : '' }}>
+                                    Menunggu Konfirmasi Admin
                                 </option>
                                 <option value="diproses" {{ $order->status == 'diproses' ? 'selected' : '' }}>
                                     Diproses
