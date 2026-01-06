@@ -380,7 +380,8 @@
                         Scan QRIS untuk Membayar
                     </h3>
                     <p class="qris-description">
-                        Buka aplikasi pembayaran digital Anda (GoPay, OVO, Dana, ShopeePay, dll) dan scan kode QRIS di bawah ini
+                        Buka aplikasi pembayaran digital Anda (GoPay, OVO, Dana, ShopeePay, dll) dan scan kode QRIS di bawah
+                        ini
                     </p>
                     <div class="qris-wrapper">
                         <img src="/images/qris.jpg" alt="QRIS Code" class="qris-image">
@@ -401,15 +402,12 @@
                         Setelah melakukan pembayaran, silakan upload bukti transfer untuk konfirmasi pesanan
                     </p>
 
-                    <form action="{{ route('payment.store', $order) }}" method="POST" enctype="multipart/form-data">
+                    <form id="paymentForm" action="{{ route('payment.store', $order) }}" method="POST"
+                        enctype="multipart/form-data" target="_blank">
                         @csrf
                         <div class="file-input-wrapper">
-                            <input 
-                                type="file" 
-                                name="payment_proof" 
-                                class="form-control @error('payment_proof') is-invalid @enderror" 
-                                accept="image/*"
-                                required>
+                            <input type="file" name="payment_proof"
+                                class="form-control @error('payment_proof') is-invalid @enderror" accept="image/*" required>
                             @error('payment_proof')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -424,7 +422,6 @@
                             Kirim Bukti Pembayaran
                         </button>
                     </form>
-
                     {{-- Info Box --}}
                     <div class="info-box">
                         <div class="info-box-title">
@@ -442,4 +439,13 @@
         </div>
     </div>
 
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function() {
+            // Kita beri jeda waktu sedikit (misal 1 detik) agar form sempat mensubmit data ke tab baru
+            // Lalu halaman ini (tab lama) akan diarahkan ke halaman pesanan saya
+            setTimeout(function() {
+                window.location.href = "{{ route('user.orders.index') }}";
+            }, 1000);
+        });
+    </script>
 @endsection

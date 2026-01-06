@@ -319,7 +319,7 @@
         }
 
         .btn-detail:hover {
-            background-color: #138496;
+            background-color: #0c691b;
             color: #ffffff;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
