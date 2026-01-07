@@ -362,7 +362,7 @@
         <hr class="page-divider">
 
         {{-- Order Statistics --}}
-        @if(count($orders) > 0)
+        @if (count($orders) > 0)
             <div class="order-stats">
                 <div class="stat-card">
                     <div class="stat-icon">
@@ -375,14 +375,18 @@
                     <div class="stat-icon">
                         <i class="bi bi-clock-history"></i>
                     </div>
-                    <div class="stat-value">{{ $orders->where('status', 'menunggu konfirmasi admin')->count() + $orders->where('status', 'pending')->count() }}</div>
+                    <div class="stat-value">
+                        {{ $orders->where('status', 'menunggu konfirmasi admin')->count() + $orders->where('status', 'pending')->count() }}
+                    </div>
                     <div class="stat-label">Menunggu</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">
                         <i class="bi bi-check-circle"></i>
                     </div>
-                    <div class="stat-value">{{ $orders->where('status', 'selesai')->count() + $orders->where('status', 'completed')->count() }}</div>
+                    <div class="stat-value">
+                        {{ $orders->where('status', 'selesai')->count() + $orders->where('status', 'completed')->count() }}
+                    </div>
                     <div class="stat-label">Selesai</div>
                 </div>
             </div>
@@ -391,7 +395,7 @@
         {{-- Orders Table --}}
         <div class="card orders-card">
             <div class="card-body">
-                @if(count($orders) > 0)
+                @if (count($orders) > 0)
                     <div class="table-responsive">
                         <table class="orders-table">
                             <thead>
@@ -404,7 +408,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($orders as $order)
+                                @foreach ($orders as $order)
                                     <tr>
                                         <td>
                                             <div class="order-id">#{{ $order->id }}</div>
@@ -420,8 +424,8 @@
                                                 $statusClass = '';
                                                 $statusIcon = '';
                                                 $statusNormalized = strtolower(str_replace(' ', '', $order->status));
-                                                
-                                                switch($statusNormalized) {
+
+                                                switch ($statusNormalized) {
                                                     case 'menunggupembayaran':
                                                     case 'pending':
                                                         $statusClass = 'status-menunggu';
@@ -467,6 +471,15 @@
                                                 <i class="bi bi-eye"></i>
                                                 Lihat Detail
                                             </a>
+
+                                            {{-- Cek status DAN pastikan belum ada data pembayaran (belum upload) --}}
+                                            @if (($order->status == 'menunggu konfirmasi admin' || $order->status == 'pending') && !$order->payment)
+                                                <a href="{{ route('payment.show', $order) }}" class="btn-detail"
+                                                    style="background-color: #e65100; color: white;">
+                                                    <i class="bi bi-upload"></i>
+                                                    Bayar
+                                                </a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
@@ -475,7 +488,7 @@
                     </div>
 
                     {{-- Pagination --}}
-                    @if($orders->hasPages())
+                    @if ($orders->hasPages())
                         <div class="pagination-wrapper">
                             {{ $orders->links() }}
                         </div>

@@ -26,20 +26,33 @@ class OrderController extends Controller
     {
         $request->validate(['status' => 'required|string']);
 
+        $oldStatus = $order->status; // Simpan status lama
         $newStatus = $request->status;
+
+        // --- LOGIKA PENGEMBALIAN STOK (RESTOCK) ---
+        // Jika status baru adalah 'dibatalkan' DAN status lama BUKAN 'dibatalkan'
+        if ($newStatus == 'dibatalkan' && $oldStatus != 'dibatalkan') {
+            // Kembalikan stok untuk setiap item
+            foreach ($order->items as $item) {
+                if ($item->product) {
+                    $item->product->increment('stock', $item->quantity);
+                }
+            }
+        }
+        // Catatan: Jika kamu ingin mengurangi stok lagi kalau admin batal membatalkan (misal dari 'dibatalkan' ubah ke 'diproses'),
+        // kamu perlu tambahkan logika kebalikan (decrement) di sini.
+        // ------------------------------------------
+
         $order->update(['status' => $newStatus]);
 
-        // --- LOGIKA NOTIFIKASI WHATSAPP DIMULAI DI SINI ---
-
+        // --- LOGIKA NOTIFIKASI WHATSAPP ---
         $phone = $order->phone_number;
-        // Format nomor telepon ke format internasional (62), jika dimulai dengan 0
         if (substr($phone, 0, 1) === '0') {
             $phone = '62' . substr($phone, 1);
         }
 
         $message = '';
 
-        // 3. Buat pesan berdasarkan status baru
         switch ($newStatus) {
             case 'diproses':
                 $message = "Halo {$order->user->name}, pembayaran untuk pesanan #{$order->id} telah kami konfirmasi. Pesanan Anda sedang kami proses. Terima kasih!";
@@ -51,16 +64,13 @@ class OrderController extends Controller
                 $message = "Pesanan #{$order->id} Anda telah selesai. Terima kasih telah berbelanja di Jelly SnackO!";
                 break;
             case 'dibatalkan':
-                $message = "Dengan berat hati kami memberitahukan bahwa pesanan #{$order->id} Anda telah dibatalkan.";
+                $message = "Mohon maaf, pesanan #{$order->id} Anda telah dibatalkan. Silakan hubungi admin untuk info lebih lanjut.";
                 break;
         }
 
-        // 4. Kirim pesan jika ada pesan yang perlu dikirim
         if (!empty($message)) {
             $whatsAppService->sendMessage($phone, $message);
         }
-        
-        // --- LOGIKA NOTIFIKASI WHATSAPP SELESAI ---
 
         return redirect()->route('admin.orders.show', $order)->with('success', 'Status pesanan berhasil diperbarui.');
     }
