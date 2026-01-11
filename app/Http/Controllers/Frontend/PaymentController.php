@@ -46,7 +46,7 @@ class PaymentController extends Controller
 
         // 3. KONFIGURASI NOMOR ADMIN
         // Ganti dengan nomor WhatsApp Admin Anda (gunakan format 628...)
-        $adminPhoneNumber = '6283189865216';
+        $adminPhoneNumber = '6281268257643';
 
         // 4. SUSUN PESAN WHATSAPP (Format Formal Tanpa Emoji)
         $user = Auth::user(); // Ambil nama user untuk identitas

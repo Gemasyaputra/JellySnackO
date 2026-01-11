@@ -825,7 +825,7 @@
         </footer>
 
         {{-- HTML UNTUK FLOATING BUTTON --}}
-        <a href="https://wa.me/+6281378241506?text=Halo,%20saya%20ingin%20bertanya%20tentang%20produk%20di%20Jelly%20SnackO."
+        <a href="https://wa.me/+6281268257643?text=Halo,%20saya%20ingin%20bertanya%20tentang%20produk%20di%20Jelly%20SnackO."
             class="whatsapp-float" target="_blank" aria-label="Chat WhatsApp">
             <i class="bi bi-whatsapp"></i>
         </a>
