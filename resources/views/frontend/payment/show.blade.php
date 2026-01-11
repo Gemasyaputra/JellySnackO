@@ -384,7 +384,7 @@
                         ini
                     </p>
                     <div class="qris-wrapper">
-                        <img src="/images/qris.jpg" alt="QRIS Code" class="qris-image">
+                        <img src="/images/1.jpeg" alt="QRIS Code" class="qris-image">
                     </div>
                 </div>
             </div>
