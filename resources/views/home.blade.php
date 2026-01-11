@@ -799,7 +799,7 @@
                         <div class="map-wrapper">
                             {{-- Ganti src iframe di bawah ini dengan Link Embed Google Maps lokasi kamu sendiri --}}
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127669.04949576054!2d100.3524959!3d-0.9345806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b942e2b117bb%3A0x5bd44d4d386634!2sPadang%2C%20Kota%20Padang%2C%20Sumatera%20Barat!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+                                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.315509110481!2d100.37707107496512!3d-0.9096369990815591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwNTQnMzQuNyJTIDEwMMKwMjInNDYuNyJF!5e0!3m2!1sid!2sid!4v1768129095060!5m2!1sid!2sid"
                                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                         </div>
