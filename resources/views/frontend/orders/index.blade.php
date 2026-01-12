@@ -5,6 +5,7 @@
         /* === PAGE HEADER === */
         .page-header {
             margin-bottom: 2.5rem;
+            padding-top: 1rem; /* Tambahan padding atas */
         }
 
         .page-title {
@@ -47,10 +48,11 @@
             padding: 0;
         }
 
-        /* === TABLE STYLES === */
+        /* === TABLE STYLES (DESKTOP) === */
         .orders-table {
             margin: 0;
             width: 100%;
+            border-collapse: collapse; /* Pastikan border collapse */
         }
 
         .orders-table thead {
@@ -67,6 +69,7 @@
             padding: 1.25rem 1.5rem !important;
             border: none !important;
             white-space: nowrap;
+            text-align: left; /* Default text align left */
         }
 
         .orders-table tbody td {
@@ -82,7 +85,6 @@
 
         .orders-table tbody tr:hover {
             background-color: #f8f9fa;
-            transform: scale(1.001);
             transition: all 0.2s ease;
         }
 
@@ -124,44 +126,14 @@
             white-space: nowrap;
         }
 
-        .status-pending,
-        .status-menunggu {
-            background-color: #fff3e0;
-            color: #e65100;
-            border: 2px solid #ffb74d;
-        }
+        /* Status Colors (Tetap sama) */
+        .status-pending, .status-menunggu { background-color: #fff3e0; color: #e65100; border: 2px solid #ffb74d; }
+        .status-diproses, .status-processing { background-color: #e3f2fd; color: #1565c0; border: 2px solid #64b5f6; }
+        .status-dikirim, .status-shipped { background-color: #f3e5f5; color: #6a1b9a; border: 2px solid #ba68c8; }
+        .status-selesai, .status-completed { background-color: #e8f5e9; color: #2e7d32; border: 2px solid #66bb6a; }
+        .status-dibatalkan, .status-cancelled { background-color: #ffebee; color: #c62828; border: 2px solid #ef5350; }
 
-        .status-diproses,
-        .status-processing {
-            background-color: #e3f2fd;
-            color: #1565c0;
-            border: 2px solid #64b5f6;
-        }
-
-        .status-dikirim,
-        .status-shipped {
-            background-color: #f3e5f5;
-            color: #6a1b9a;
-            border: 2px solid #ba68c8;
-        }
-
-        .status-selesai,
-        .status-completed {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            border: 2px solid #66bb6a;
-        }
-
-        .status-dibatalkan,
-        .status-cancelled {
-            background-color: #ffebee;
-            color: #c62828;
-            border: 2px solid #ef5350;
-        }
-
-        .status-badge i {
-            font-size: 1rem;
-        }
+        .status-badge i { font-size: 1rem; }
 
         /* === ACTION BUTTON === */
         .btn-detail {
@@ -177,6 +149,8 @@
             align-items: center;
             gap: 0.4rem;
             text-decoration: none;
+            margin-right: 5px; /* Jarak antar tombol */
+            margin-bottom: 5px; /* Jarak jika wrap */
         }
 
         .btn-detail:hover {
@@ -186,31 +160,11 @@
             box-shadow: 0 4px 8px rgba(6, 60, 15, 0.3);
         }
 
-        /* === EMPTY STATE === */
-        .empty-state {
-            text-align: center;
-            padding: 5rem 2rem;
-        }
-
-        .empty-state i {
-            font-size: 6rem;
-            color: #B7AF83;
-            margin-bottom: 2rem;
-            opacity: 0.5;
-        }
-
-        .empty-state h3 {
-            font-family: 'Merriweather', serif;
-            color: #063C0F;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .empty-state p {
-            color: #7B8D63;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
+        /* === EMPTY STATE & OTHERS === */
+        .empty-state { text-align: center; padding: 5rem 2rem; }
+        .empty-state i { font-size: 6rem; color: #B7AF83; margin-bottom: 2rem; opacity: 0.5; }
+        .empty-state h3 { font-family: 'Merriweather', serif; color: #063C0F; font-weight: 700; margin-bottom: 1rem; }
+        .empty-state p { color: #7B8D63; font-size: 1.1rem; margin-bottom: 2rem; }
 
         .btn-shop {
             background-color: #063C0F;
@@ -227,124 +181,89 @@
             gap: 0.6rem;
             text-decoration: none;
         }
-
-        .btn-shop:hover {
-            background-color: #084d14;
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(6, 60, 15, 0.3);
-        }
+        .btn-shop:hover { background-color: #084d14; color: #ffffff; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(6, 60, 15, 0.3); }
 
         /* === PAGINATION === */
-        .pagination-wrapper {
-            padding: 1.5rem;
-            display: flex;
-            justify-content: center;
-            background-color: #f8f9fa;
-        }
-
-        .pagination {
-            gap: 0.5rem;
-        }
-
-        .pagination .page-link {
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            color: #063C0F;
-            padding: 0.6rem 1rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .pagination .page-link:hover {
-            background-color: #B7AF83;
-            border-color: #B7AF83;
-            color: #ffffff;
-        }
-
-        .pagination .page-item.active .page-link {
-            background-color: #063C0F;
-            border-color: #063C0F;
-            color: #ffffff;
-        }
+        .pagination-wrapper { padding: 1.5rem; display: flex; justify-content: center; background-color: #f8f9fa; }
+        .pagination { gap: 0.5rem; }
+        .pagination .page-link { border: 2px solid #e0e0e0; border-radius: 10px; color: #063C0F; padding: 0.6rem 1rem; font-weight: 600; transition: all 0.2s ease; }
+        .pagination .page-link:hover { background-color: #B7AF83; border-color: #B7AF83; color: #ffffff; }
+        .pagination .page-item.active .page-link { background-color: #063C0F; border-color: #063C0F; color: #ffffff; }
 
         /* === INFO STATS === */
-        .order-stats {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
+        .order-stats { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
         .stat-card {
-            flex: 1;
-            min-width: 200px;
+            flex: 1; min-width: 200px;
             background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 1.25rem;
-            text-align: center;
-            transition: all 0.3s ease;
+            border: 2px solid #e0e0e0; border-radius: 12px; padding: 1.25rem;
+            text-align: center; transition: all 0.3s ease;
         }
+        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border-color: #B7AF83; }
+        .stat-icon { font-size: 2rem; color: #B7AF83; margin-bottom: 0.5rem; }
+        .stat-value { font-family: 'Merriweather', serif; font-size: 1.8rem; font-weight: 700; color: #063C0F; margin-bottom: 0.25rem; }
+        .stat-label { color: #7B8D63; font-size: 0.9rem; font-weight: 600; }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-color: #B7AF83;
-        }
-
-        .stat-icon {
-            font-size: 2rem;
-            color: #B7AF83;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-value {
-            font-family: 'Merriweather', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #063C0F;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            color: #7B8D63;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* === RESPONSIVE === */
+        /* =========================================
+           RESPONSIVE MOBILE STYLES (CARD VIEW)
+           ========================================= */
         @media (max-width: 768px) {
-            .page-title {
-                font-size: 1.8rem;
-            }
+            .page-title { font-size: 1.8rem; flex-direction: column; align-items: flex-start; }
+            .order-stats { flex-direction: column; }
+            .stat-card { min-width: 100%; }
 
-            .orders-table {
-                font-size: 0.85rem;
-            }
+            /* Sembunyikan Header Tabel */
+            .orders-table thead { display: none; }
 
-            .orders-table thead th,
-            .orders-table tbody td {
+            /* Ubah TR menjadi Kartu */
+            .orders-table tbody tr {
+                display: block;
+                background-color: #fff;
+                border: 1px solid #e0e0e0;
+                border-radius: 12px;
+                margin-bottom: 1rem;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
                 padding: 1rem;
             }
 
-            .order-date {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.25rem;
+            /* Ubah TD menjadi Flex Row */
+            .orders-table tbody td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #f0f0f0;
+                text-align: right;
+                font-size: 0.9rem;
             }
 
+            /* Hapus border elemen terakhir */
+            .orders-table tbody td:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+                flex-direction: column; /* Tombol aksi stack ke bawah */
+                gap: 0.5rem;
+                align-items: stretch; /* Tombol full width */
+            }
+
+            /* Tambahkan Label dari attribute data-label */
+            .orders-table tbody td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: #7B8D63;
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                text-align: left;
+                margin-right: 1rem;
+                min-width: 100px; /* Supaya rapi */
+            }
+
+            /* Styling khusus untuk elemen dalam mobile */
+            .order-date { justify-content: flex-end; }
+            
             .btn-detail {
                 width: 100%;
                 justify-content: center;
-            }
-
-            .order-stats {
-                flex-direction: column;
-            }
-
-            .stat-card {
-                min-width: 100%;
+                margin-right: 0;
             }
         }
     </style>
@@ -365,25 +284,19 @@
         @if (count($orders) > 0)
             <div class="order-stats">
                 <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="bi bi-receipt"></i>
-                    </div>
+                    <div class="stat-icon"><i class="bi bi-receipt"></i></div>
                     <div class="stat-value">{{ $orders->total() }}</div>
                     <div class="stat-label">Total Pesanan</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="bi bi-clock-history"></i>
-                    </div>
+                    <div class="stat-icon"><i class="bi bi-clock-history"></i></div>
                     <div class="stat-value">
                         {{ $orders->where('status', 'menunggu konfirmasi admin')->count() + $orders->where('status', 'pending')->count() }}
                     </div>
                     <div class="stat-label">Menunggu</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="bi bi-check-circle"></i>
-                    </div>
+                    <div class="stat-icon"><i class="bi bi-check-circle"></i></div>
                     <div class="stat-value">
                         {{ $orders->where('status', 'selesai')->count() + $orders->where('status', 'completed')->count() }}
                     </div>
@@ -396,7 +309,7 @@
         <div class="card orders-card">
             <div class="card-body">
                 @if (count($orders) > 0)
-                    <div class="table-responsive">
+                    <div class="table-responsive"> {{-- Wrapper opsional --}}
                         <table class="orders-table">
                             <thead>
                                 <tr>
@@ -410,16 +323,17 @@
                             <tbody>
                                 @foreach ($orders as $order)
                                     <tr>
-                                        <td>
+                                        {{-- TAMBAHKAN data-label="Nama Kolom" DISINI --}}
+                                        <td data-label="ID Pesanan">
                                             <div class="order-id">#{{ $order->id }}</div>
                                         </td>
-                                        <td>
+                                        <td data-label="Tanggal">
                                             <div class="order-date">
                                                 <i class="bi bi-calendar-event"></i>
                                                 {{ $order->created_at->format('d M Y') }}
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Status">
                                             @php
                                                 $statusClass = '';
                                                 $statusIcon = '';
@@ -461,23 +375,21 @@
                                                 {{ ucwords($order->status) }}
                                             </span>
                                         </td>
-                                        <td>
+                                        <td data-label="Total Harga">
                                             <div class="order-price">
                                                 Rp {{ number_format($order->total_price, 0, ',', '.') }}
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-label="Aksi">
+                                            {{-- Tombol aksi --}}
                                             <a href="{{ route('user.orders.show', $order->id) }}" class="btn-detail">
-                                                <i class="bi bi-eye"></i>
-                                                Lihat Detail
+                                                <i class="bi bi-eye"></i> Lihat Detail
                                             </a>
 
-                                            {{-- Cek status DAN pastikan belum ada data pembayaran (belum upload) --}}
                                             @if (($order->status == 'menunggu konfirmasi admin' || $order->status == 'pending') && !$order->payment)
                                                 <a href="{{ route('payment.show', $order) }}" class="btn-detail"
-                                                    style="background-color: #e65100; color: white;">
-                                                    <i class="bi bi-upload"></i>
-                                                    Bayar
+                                                   style="background-color: #e65100; color: white;">
+                                                    <i class="bi bi-upload"></i> Bayar
                                                 </a>
                                             @endif
                                         </td>

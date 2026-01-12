@@ -6,6 +6,7 @@
         .page-header {
             margin-bottom: 2.5rem;
             text-align: center;
+            padding-top: 1rem;
         }
 
         .page-title {
@@ -66,10 +67,11 @@
             margin-bottom: 2rem;
         }
 
-        /* === CART TABLE === */
+        /* === CART TABLE DEFAULT (DESKTOP) === */
         .cart-table {
             width: 100%;
             margin: 0;
+            border-collapse: collapse;
         }
 
         .cart-table thead {
@@ -85,6 +87,7 @@
             padding: 1.5rem 1.5rem;
             border: none;
             white-space: nowrap;
+            text-align: left;
         }
 
         .cart-table tbody td {
@@ -123,16 +126,10 @@
             font-size: 1rem;
         }
 
-        .product-price {
+        .product-price, .product-subtotal {
             font-weight: 700;
             color: #063C0F;
             font-size: 1.05rem;
-        }
-
-        .product-subtotal {
-            font-weight: 700;
-            color: #063C0F;
-            font-size: 1.1rem;
         }
 
         /* === QUANTITY FORM === */
@@ -143,7 +140,7 @@
         }
 
         .quantity-input {
-            width: 70px;
+            width: 60px;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
             padding: 0.5rem;
@@ -154,13 +151,11 @@
 
         .quantity-input:focus {
             border-color: #7B8D63;
-            box-shadow: 0 0 0 0.25rem rgba(123, 141, 99, 0.15);
             outline: none;
         }
 
-        .btn-update {
-            background-color: #7B8D63;
-            color: #ffffff;
+        /* Buttons */
+        .btn-update, .btn-remove {
             border: none;
             padding: 0.5rem 1rem;
             border-radius: 8px;
@@ -170,31 +165,26 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
+            cursor: pointer;
+        }
+
+        .btn-update {
+            background-color: #7B8D63;
+            color: #ffffff;
         }
 
         .btn-update:hover {
             background-color: #6a7a56;
-            color: #ffffff;
             transform: translateY(-2px);
         }
 
         .btn-remove {
             background-color: #ef5350;
             color: #ffffff;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
         }
 
         .btn-remove:hover {
             background-color: #e53935;
-            color: #ffffff;
             transform: translateY(-2px);
         }
 
@@ -205,29 +195,11 @@
             border-top: 3px solid #063C0F;
         }
 
-        .summary-row {
+        .total-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .summary-label {
-            font-weight: 600;
-            color: #666;
-            font-size: 1rem;
-        }
-
-        .summary-value {
-            font-weight: 700;
-            color: #063C0F;
-            font-size: 1.1rem;
-        }
-
-        .total-row {
-            border-top: 2px solid #e0e0e0;
-            padding-top: 1.5rem;
-            margin-top: 1rem;
+            padding-top: 0.5rem;
         }
 
         .total-label {
@@ -244,7 +216,7 @@
             font-size: 1.5rem;
         }
 
-        /* === CHECKOUT BUTTON === */
+        /* === CHECKOUT BUTTONS === */
         .checkout-section {
             display: flex;
             justify-content: flex-end;
@@ -252,10 +224,7 @@
             margin-top: 1.5rem;
         }
 
-        .btn-continue {
-            background-color: #f5f5f5;
-            color: #666;
-            border: 2px solid #e0e0e0;
+        .btn-continue, .btn-checkout, .btn-shop {
             padding: 0.875rem 2rem;
             border-radius: 25px;
             font-weight: 600;
@@ -267,31 +236,27 @@
             text-decoration: none;
         }
 
+        .btn-continue {
+            background-color: #f5f5f5;
+            color: #666;
+            border: 2px solid #e0e0e0;
+        }
+
         .btn-continue:hover {
             background-color: #B7AF83;
             color: #ffffff;
             border-color: #B7AF83;
         }
 
-        .btn-checkout {
+        .btn-checkout, .btn-shop {
             background-color: #063C0F;
             color: #ffffff;
             border: none;
-            padding: 0.875rem 2.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(6, 60, 15, 0.2);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
         }
 
-        .btn-checkout:hover {
+        .btn-checkout:hover, .btn-shop:hover {
             background-color: #084d14;
-            color: #ffffff;
             transform: translateY(-2px);
             box-shadow: 0 6px 16px rgba(6, 60, 15, 0.3);
         }
@@ -304,90 +269,84 @@
             border-radius: 16px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         }
+        .empty-cart i { font-size: 6rem; color: #B7AF83; margin-bottom: 2rem; opacity: 0.5; }
+        .empty-cart h3 { font-family: 'Merriweather', serif; color: #063C0F; font-weight: 700; margin-bottom: 1rem; }
+        .empty-cart p { color: #7B8D63; font-size: 1.1rem; margin-bottom: 2rem; }
 
-        .empty-cart i {
-            font-size: 6rem;
-            color: #B7AF83;
-            margin-bottom: 2rem;
-            opacity: 0.5;
-        }
 
-        .empty-cart h3 {
-            font-family: 'Merriweather', serif;
-            color: #063C0F;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .empty-cart p {
-            color: #7B8D63;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn-shop {
-            background-color: #063C0F;
-            color: #ffffff;
-            border: none;
-            padding: 0.875rem 2.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(6, 60, 15, 0.2);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
-        }
-
-        .btn-shop:hover {
-            background-color: #084d14;
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(6, 60, 15, 0.3);
-        }
-
-        /* === RESPONSIVE === */
+        /* =========================================
+           RESPONSIVE MOBILE STYLES (CARD VIEW)
+           ========================================= */
         @media (max-width: 768px) {
-            .page-title {
-                font-size: 1.8rem;
-            }
-
-            .cart-table {
-                font-size: 0.85rem;
-            }
-
-            .cart-table thead th,
-            .cart-table tbody td {
+            .page-title { font-size: 1.8rem; flex-direction: column; gap: 0.5rem; }
+            
+            /* Sembunyikan Header Tabel */
+            .cart-table thead { display: none; }
+            
+            /* Ubah Baris (TR) menjadi Kartu */
+            .cart-table tbody tr {
+                display: block;
+                background-color: #fff;
+                border: 1px solid #e0e0e0;
+                border-radius: 12px;
+                margin-bottom: 1rem;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
                 padding: 1rem;
             }
 
-            .product-image {
-                width: 60px;
-                height: 60px;
+            /* Ubah Kolom (TD) menjadi baris flex */
+            .cart-table tbody td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #f0f0f0;
+                text-align: right;
             }
 
-            .product-info {
+            /* Hapus border pada elemen terakhir */
+            .cart-table tbody td:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            /* Tambahkan Label di sebelah kiri menggunakan data-label */
+            .cart-table tbody td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: #7B8D63;
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                text-align: left;
+                margin-right: 1rem;
+            }
+
+            /* Khusus untuk Produk (Gambar + Nama) */
+            .cart-table tbody td[data-label="Produk"] {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 0.5rem;
             }
-
-            .quantity-form {
-                flex-direction: column;
-                align-items: stretch;
+            .cart-table tbody td[data-label="Produk"]::before {
+                display: none; /* Sembunyikan label "Produk" agar lebih bersih */
             }
-
-            .quantity-input {
+            .product-info {
                 width: 100%;
+                gap: 1rem;
             }
 
+            /* Styling Input Quantity Mobile */
+            .quantity-form {
+                width: 100%;
+                justify-content: flex-end;
+            }
+            
+            /* Tombol Checkout responsive */
             .checkout-section {
                 flex-direction: column;
+                gap: 0.8rem;
             }
-
-            .btn-continue,
-            .btn-checkout {
+            .btn-continue, .btn-checkout {
                 width: 100%;
                 justify-content: center;
             }
@@ -413,7 +372,7 @@
     {{-- Cart Content --}}
     @if (count($cartItems) > 0)
         <div class="cart-container">
-            <div class="table-responsive">
+            <div class="table-responsive"> {{-- Wrapper opsional --}}
                 <table class="cart-table">
                     <thead>
                         <tr>
@@ -425,16 +384,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @php
-                            $total = 0;
-                        @endphp
+                        @php $total = 0; @endphp
                         @foreach ($cartItems as $item)
                             @php
                                 $subtotal = $item->price * $item->quantity;
                                 $total += $subtotal;
                             @endphp
                             <tr>
-                                <td>
+                                {{-- PERHATIKAN: Saya menambahkan data-label="" untuk mobile --}}
+                                <td data-label="Produk">
                                     <div class="product-info">
                                         <img src="{{ Storage::url($item->attributes->image) }}" 
                                              alt="{{ $item->name }}" 
@@ -442,12 +400,12 @@
                                         <span class="product-name">{{ $item->name }}</span>
                                     </div>
                                 </td>
-                                <td>
+                                <td data-label="Harga">
                                     <div class="product-price">
                                         Rp {{ number_format($item->price, 0, ',', '.') }}
                                     </div>
                                 </td>
-                                <td>
+                                <td data-label="Jumlah">
                                     <form action="{{ route('cart.update', $item->id) }}" method="POST" class="quantity-form">
                                         @csrf
                                         @method('PATCH')
@@ -458,22 +416,20 @@
                                                min="1">
                                         <button type="submit" class="btn-update">
                                             <i class="bi bi-arrow-clockwise"></i>
-                                            Update
                                         </button>
                                     </form>
                                 </td>
-                                <td>
+                                <td data-label="Subtotal">
                                     <div class="product-subtotal">
                                         Rp {{ number_format($subtotal, 0, ',', '.') }}
                                     </div>
                                 </td>
-                                <td>
+                                <td data-label="Aksi">
                                     <form action="{{ route('cart.destroy', $item->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn-remove">
-                                            <i class="bi bi-trash"></i>
-                                            Hapus
+                                            <i class="bi bi-trash"></i> Hapus
                                         </button>
                                     </form>
                                 </td>
