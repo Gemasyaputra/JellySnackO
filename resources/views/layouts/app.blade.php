@@ -753,9 +753,9 @@
                             menemani waktu santai keluarga Anda.
                         </p>
                         <div class="social-links">
-                            <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="social-btn"><i class="bi bi-whatsapp"></i></a>
-                            <a href="#" class="social-btn"><i class="bi bi-tiktok"></i></a>
+                            <a href="https://www.instagram.com/jellysnacko?igsh=MW5rZGs1bmdxN2M4bA==" class="social-btn"><i class="bi bi-instagram"></i></a>
+                            <a href="https://wa.me/+6281268257643" class="social-btn"><i class="bi bi-whatsapp"></i></a>
+                            <a href="https://www.tiktok.com/@snackojelly?_r=1&_t=ZS-930gqk52iK0" class="social-btn"><i class="bi bi-tiktok"></i></a>
                         </div>
                     </div>
 

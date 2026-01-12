@@ -610,7 +610,7 @@
                             <i class="bi bi-box-seam-fill"></i>
                         </div>
                         <h3>Pengiriman Aman</h3>
-                        <p>Setiap paket dilapisi <i>bubble wrap</i> tebal dan dikemas rapi agar produk sampai dengan utuh
+                        <p>Setiap paket kami dikemas rapi agar produk sampai dengan utuh
                             dan tetap estetik.</p>
                     </div>
                 </div>
@@ -644,8 +644,7 @@
                 <div class="row g-0">
                     <div class="col-lg-5">
                         {{-- Ganti URL gambar ini dengan foto produk/dapur kamu yang asli --}}
-                        <img src="images/cendil.jpeg"
-                            class="about-img" alt="Tentang Jelly SnackO">
+                        <img src="images/cendil.jpeg" class="about-img" alt="Tentang Jelly SnackO">
                     </div>
                     <div class="col-lg-7">
                         <div class="about-content">
@@ -662,19 +661,21 @@
                             </p>
 
                             <div class="row g-3">
-                                <div class="col-4">
+                                <div class="col-12 col-sm-4">
                                     <div class="stat-box">
                                         <span class="stat-number">100%</span>
                                         <span class="stat-label">Halal</span>
                                     </div>
                                 </div>
-                                <div class="col-4">
+
+                                <div class="col-12 col-sm-4">
                                     <div class="stat-box">
                                         <span class="stat-number">Fresh</span>
                                         <span class="stat-label">Setiap Hari</span>
                                     </div>
                                 </div>
-                                <div class="col-4">
+
+                                <div class="col-12 col-sm-4">
                                     <div class="stat-box">
                                         <span class="stat-number">4.9</span>
                                         <span class="stat-label">Rating</span>
